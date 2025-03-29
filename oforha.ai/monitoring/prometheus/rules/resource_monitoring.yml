@@ -1,0 +1,175 @@
+groups:
+  - name: resource-monitoring
+    rules:
+      # CPU Monitoring
+      - alert: HighCPUUsage
+        expr: node_cpu_seconds_total{mode="idle"} < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High CPU usage detected
+          description: "CPU usage is above 80% for {{ $labels.instance }}"
+
+      - alert: CriticalCPUUsage
+        expr: node_cpu_seconds_total{mode="idle"} < 0.1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Critical CPU usage detected
+          description: "CPU usage is above 90% for {{ $labels.instance }}"
+
+      # Memory Monitoring
+      - alert: HighMemoryUsage
+        expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High memory usage detected
+          description: "Memory usage is above 80% for {{ $labels.instance }}"
+
+      - alert: CriticalMemoryUsage
+        expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Critical memory usage detected
+          description: "Memory usage is above 90% for {{ $labels.instance }}"
+
+      # Disk Monitoring
+      - alert: HighDiskUsage
+        expr: node_filesystem_free_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"} < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High disk usage detected
+          description: "Disk usage is above 80% for {{ $labels.instance }}"
+
+      - alert: CriticalDiskUsage
+        expr: node_filesystem_free_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"} < 0.1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Critical disk usage detected
+          description: "Disk usage is above 90% for {{ $labels.instance }}"
+
+      # Network Monitoring
+      - alert: HighNetworkTraffic
+        expr: rate(node_network_transmit_bytes_total[5m]) > 1000000000
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High network traffic detected
+          description: "Network traffic is above 1GB/s for {{ $labels.instance }}"
+
+      # Database Monitoring
+      - alert: HighDBConnections
+        expr: mongodb_connections > 800
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High database connections
+          description: "Database connections are above 800 for {{ $labels.instance }}"
+
+      - alert: HighDBLatency
+        expr: mongodb_op_latency_seconds > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High database latency
+          description: "Database operations are taking longer than 100ms for {{ $labels.instance }}"
+
+      # Redis Monitoring
+      - alert: HighRedisMemory
+        expr: redis_memory_used_bytes / redis_memory_max_bytes > 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High Redis memory usage
+          description: "Redis memory usage is above 80% for {{ $labels.instance }}"
+
+      - alert: LowRedisHitRate
+        expr: redis_keyspace_hits / (redis_keyspace_hits + redis_keyspace_misses) < 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Low Redis hit rate
+          description: "Redis cache hit rate is below 80% for {{ $labels.instance }}"
+
+      # API Monitoring
+      - alert: HighAPILatency
+        expr: rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m]) > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High API latency
+          description: "API response time is above 1s for {{ $labels.instance }}"
+
+      - alert: HighAPIErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: High API error rate
+          description: "API error rate is above 5% for {{ $labels.instance }}"
+
+      # AI Service Monitoring
+      - alert: HighAILatency
+        expr: ai_response_time_seconds > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High AI service latency
+          description: "AI service response time is above 2s for {{ $labels.instance }}"
+
+      - alert: LowAIAccuracy
+        expr: ai_response_accuracy < 0.85
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: Low AI response accuracy
+          description: "AI response accuracy is below 85% for {{ $labels.instance }}"
+
+      # Storage Monitoring
+      - alert: HighStorageUsage
+        expr: storage_used_bytes / storage_total_bytes > 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High storage usage
+          description: "Storage usage is above 80% for {{ $labels.instance }}"
+
+      # CDN Monitoring
+      - alert: HighCDNErrorRate
+        expr: cdn_error_rate > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High CDN error rate
+          description: "CDN error rate is above 5% for {{ $labels.instance }}"
+
+      # Cost Monitoring
+      - alert: HighCostUsage
+        expr: cost_per_hour > 5
+        for: 1h
+        labels:
+          severity: warning
+        annotations:
+          summary: High cost usage
+          description: "Cost usage is above $5/hour for {{ $labels.instance }}" 

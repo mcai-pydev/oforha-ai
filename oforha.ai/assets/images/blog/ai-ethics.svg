@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7600bc;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#7600bc;stop-opacity:0.1"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="400" fill="url(#headerGradient)"/>
+    
+    <!-- Circuit Pattern -->
+    <g stroke="#7600bc" stroke-width="2" opacity="0.3">
+        <path d="M100,200 h600" fill="none"/>
+        <path d="M400,100 v200" fill="none"/>
+        <circle cx="400" cy="200" r="50" fill="none"/>
+        <circle cx="400" cy="200" r="100" fill="none"/>
+    </g>
+    
+    <!-- Binary Code Background -->
+    <g fill="#7600bc" opacity="0.1" font-family="monospace">
+        <text x="50" y="50">1010 0101 1100</text>
+        <text x="650" y="350">0101 1001 0011</text>
+        <text x="200" y="150">1100 0011 1010</text>
+        <text x="500" y="250">0011 1010 0101</text>
+    </g>
+    
+    <!-- Title -->
+    <text x="400" y="180" font-family="Arial" font-size="32" fill="#7600bc" text-anchor="middle" font-weight="bold">
+        AI Ethics
+    </text>
+    <text x="400" y="220" font-family="Arial" font-size="18" fill="#666" text-anchor="middle">
+        Navigating the Future of Technology
+    </text>
+</svg> 

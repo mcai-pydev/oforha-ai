@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://www.oforha.ai/sitemap.xml 

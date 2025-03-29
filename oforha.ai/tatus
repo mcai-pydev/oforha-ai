@@ -1,0 +1,13 @@
+[33mf46410a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;32mgh-pages[m[33m)[m Add environment configuration and setup scripts
+[33me7f17ce[m Add deployment configuration and security middleware
+[33mecd5ca4[m Add backend with contact form, email integration, and message tracking
+[33m8376d07[m Fix navigation icons and add dropdown funcionality
+[33mb879892[m[33m ([m[1;31morigin/gh-pages[m[33m)[m Polish contact section UI and remove working hours
+[33meabd0da[m Enhance contact section with form functionality and styling
+[33mf841975[m Update website styling and social links
+[33mdaa9883[m Add project cards with SVG illustrations for AI/ML projects
+[33m4976160[m Add modern frontend implementation with responsive design, animations, and interactive features
+[33m7d47d83[m Add new assets, projects, and security documentation
+[33mc74913b[m Update CNAME for apex domain
+[33m2023824[m Add CNAME for custom domain
+[33mb60f780[m[33m ([m[1;32mmaster[m[33m)[m Initial commit: Basic landing page and README

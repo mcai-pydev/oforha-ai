@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oforha.ai - Email Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #7600bc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #8f00e2;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background: #e6ffe6;
+            color: #006600;
+        }
+        .error {
+            background: #ffe6e6;
+            color: #660000;
+        }
+        .log {
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oforha.ai - Email System Test</h1>
+        
+        <div class="test-section">
+            <h2>1. Test Email Configuration</h2>
+            <button onclick="testEmailConfig()">Test Configuration</button>
+            <div id="configResult" class="result"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>2. Send Test Email</h2>
+            <button onclick="sendTestEmail()">Send Test Email</button>
+            <div id="emailResult" class="result"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. Test Contact Form</h2>
+            <form id="testContactForm" onsubmit="testContactForm(event)">
+                <div style="margin-bottom: 10px;">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" value="Test User" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" value="test@example.com" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" style="width: 100%; padding: 8px; height: 100px;">This is a test message from the contact form.</textarea>
+                </div>
+                <button type="submit">Test Contact Form</button>
+            </form>
+            <div id="formResult" class="result"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>System Logs</h2>
+            <div id="logs" class="log"></div>
+        </div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logs = document.getElementById('logs');
+            const time = new Date().toLocaleTimeString();
+            logs.innerHTML += `<div style="color: ${type === 'error' ? 'red' : 'black'}">[${time}] ${message}</div>`;
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        async function testEmailConfig() {
+            const button = event.target;
+            const result = document.getElementById('configResult');
+            
+            button.disabled = true;
+            result.className = 'result';
+            result.textContent = 'Testing configuration...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/health');
+                const data = await response.json();
+                
+                log('Health check response: ' + JSON.stringify(data));
+                
+                if (data.status === 'ok' && data.emailConfigured) {
+                    result.className = 'result success';
+                    result.textContent = 'Email configuration is valid!';
+                } else {
+                    result.className = 'result error';
+                    result.textContent = 'Email configuration issue: ' + JSON.stringify(data);
+                }
+            } catch (error) {
+                log('Configuration test error: ' + error.message, 'error');
+                result.className = 'result error';
+                result.textContent = 'Failed to test configuration: ' + error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        async function sendTestEmail() {
+            const button = event.target;
+            const result = document.getElementById('emailResult');
+            
+            button.disabled = true;
+            result.className = 'result';
+            result.textContent = 'Sending test email...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/test-email', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                
+                log('Test email response: ' + JSON.stringify(data));
+                
+                if (response.ok) {
+                    result.className = 'result success';
+                    result.textContent = 'Test email sent successfully! Message ID: ' + data.messageId;
+                } else {
+                    result.className = 'result error';
+                    result.textContent = 'Failed to send test email: ' + data.error;
+                }
+            } catch (error) {
+                log('Send test email error: ' + error.message, 'error');
+                result.className = 'result error';
+                result.textContent = 'Failed to send test email: ' + error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        async function testContactForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const button = form.querySelector('button');
+            const result = document.getElementById('formResult');
+            
+            button.disabled = true;
+            result.className = 'result';
+            result.textContent = 'Submitting test form...';
+            
+            try {
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value
+                };
+                
+                log('Submitting form data: ' + JSON.stringify(formData));
+                
+                const response = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                log('Contact form response: ' + JSON.stringify(data));
+                
+                if (response.ok) {
+                    result.className = 'result success';
+                    result.textContent = 'Contact form submission successful! Tracking ID: ' + data.trackingId;
+                } else {
+                    result.className = 'result error';
+                    result.textContent = 'Contact form submission failed: ' + data.error;
+                }
+            } catch (error) {
+                log('Contact form error: ' + error.message, 'error');
+                result.className = 'result error';
+                result.textContent = 'Failed to submit contact form: ' + error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html> 

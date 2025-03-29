@@ -1,0 +1,7 @@
+# Security Policy
+Contact: mailto:mcofora@gmail.com
+Expires: 2025-01-01T00:00:00.000Z
+Preferred-Languages: en
+Policy: https://github.com/mcai-pydev/oforha.ai/security/policy
+# Please report security issues responsibly
+Hiring: https://www.oforha.ai/careers 

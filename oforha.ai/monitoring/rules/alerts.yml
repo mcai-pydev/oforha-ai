@@ -1,0 +1,116 @@
+groups:
+  - name: oforha-alerts
+    rules:
+      # Performance Alerts
+      - alert: HighLatency
+        expr: rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High API latency detected
+          description: "API latency is above 100ms for {{ $labels.instance }}"
+
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: High error rate detected
+          description: "Error rate is above 5% for {{ $labels.instance }}"
+
+      # AI Service Alerts
+      - alert: LowAIAccuracy
+        expr: ai_response_accuracy < 0.85
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: Low AI response accuracy
+          description: "AI response accuracy is below 85%"
+
+      - alert: HighAILatency
+        expr: ai_response_time_seconds > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High AI response time
+          description: "AI response time is above 1 second"
+
+      # Learning Platform Alerts
+      - alert: LowCourseCompletion
+        expr: course_completion_rate < 0.7
+        for: 24h
+        labels:
+          severity: warning
+        annotations:
+          summary: Low course completion rate
+          description: "Course completion rate is below 70%"
+
+      - alert: LowUserEngagement
+        expr: user_engagement_rate < 0.6
+        for: 24h
+        labels:
+          severity: warning
+        annotations:
+          summary: Low user engagement
+          description: "User engagement rate is below 60%"
+
+      # System Health Alerts
+      - alert: HighCPUUsage
+        expr: node_cpu_seconds_total{mode="idle"} < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High CPU usage
+          description: "CPU usage is above 80% on {{ $labels.instance }}"
+
+      - alert: HighMemoryUsage
+        expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High memory usage
+          description: "Memory usage is above 80% on {{ $labels.instance }}"
+
+      - alert: HighDiskUsage
+        expr: node_filesystem_free_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"} < 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High disk usage
+          description: "Disk usage is above 80% on {{ $labels.instance }}"
+
+      # Database Alerts
+      - alert: HighMongoDBLatency
+        expr: mongodb_op_latency_seconds > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High MongoDB latency
+          description: "MongoDB operation latency is above 100ms"
+
+      - alert: HighRedisLatency
+        expr: redis_operation_latency_seconds > 0.01
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High Redis latency
+          description: "Redis operation latency is above 10ms"
+
+      # API Rate Limiting
+      - alert: HighAPIRate
+        expr: rate(http_requests_total[5m]) > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: High API request rate
+          description: "API request rate is above 100 requests per minute" 

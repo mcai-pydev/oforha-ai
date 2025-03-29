@@ -1,0 +1,149 @@
+# ML Pipeline Configuration
+
+# Random state for reproducibility
+random_state: 42
+
+# Data processing settings
+data_processing:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  shuffle: true
+
+# Feature engineering
+feature_engineering:
+  scaling: true
+  encoding: true
+  outlier_removal: true
+  feature_selection: true
+  pca:
+    enabled: true
+    n_components: 0.95
+
+# Model settings
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 2
+    min_samples_leaf: 1
+    n_jobs: -1
+
+  gradient_boosting:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 3
+    subsample: 0.8
+
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
+    multi_class: 'auto'
+    n_jobs: -1
+
+  svm:
+    C: 1.0
+    kernel: 'rbf'
+    probability: true
+
+  neural_network:
+    hidden_layer_sizes: [100, 50]
+    activation: 'relu'
+    solver: 'adam'
+    max_iter: 1000
+    early_stopping: true
+
+# Hyperparameter optimization
+hyperparameter_optimization:
+  enabled: true
+  n_trials: 100
+  timeout: 3600
+  n_jobs: -1
+  metric: 'accuracy'
+  direction: 'maximize'
+
+# Cross-validation
+cross_validation:
+  n_splits: 5
+  shuffle: true
+  random_state: 42
+
+# Model evaluation
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+  average: 'weighted'
+  zero_division: 0
+
+# Model persistence
+model_persistence:
+  save_models: true
+  save_metrics: true
+  save_predictions: true
+  model_dir: 'models'
+  metrics_dir: 'metrics'
+  predictions_dir: 'predictions'
+
+# MLflow settings
+mlflow:
+  tracking_uri: 'http://localhost:5000'
+  experiment_name: 'ml_pipeline'
+  log_models: true
+  log_metrics: true
+  log_params: true
+  log_artifacts: true
+
+# Logging
+logging:
+  level: 'INFO'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: 'pipeline.log'
+  console: true
+
+# Paths
+paths:
+  data: 'data'
+  models: 'models'
+  metrics: 'metrics'
+  predictions: 'predictions'
+  logs: 'logs'
+  artifacts: 'artifacts'
+
+# Performance monitoring
+monitoring:
+  enabled: true
+  interval: 60  # seconds
+  metrics:
+    - cpu_usage
+    - memory_usage
+    - disk_usage
+    - gpu_usage
+  alerts:
+    enabled: true
+    thresholds:
+      cpu_usage: 80
+      memory_usage: 80
+      disk_usage: 80
+      gpu_usage: 80
+
+# Security
+security:
+  encryption: true
+  key_path: 'keys'
+  model_signatures: true
+  access_control: true
+  audit_logging: true
+
+# Deployment
+deployment:
+  model_format: 'onnx'
+  batch_size: 32
+  max_workers: 4
+  timeout: 30
+  retries: 3
+  health_check: true
+  monitoring: true 
