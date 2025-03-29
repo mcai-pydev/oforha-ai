@@ -77,10 +77,11 @@ ENV/
 # Environment Variables and Secrets
 .env
 .env.*
-*.env
+!*.env.example
 sendgrid.env
 oforha_db/.env
 oforha_db/*.env
+!oforha_db/.env.example
 
 # IDE
 .idea/
@@ -94,3 +95,11 @@ oforha_db/*.env
 # Local development
 .DS_Store
 Thumbs.db
+
+# Node
+node_modules/
+package-lock.json
+
+# Python cache
+__pycache__/
+*.pyc
