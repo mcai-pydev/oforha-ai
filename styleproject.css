@@ -1,0 +1,657 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Navigation Bar */
+  
+  #home {
+    background-color: #7600bc;
+    padding-bottom: 1cm;
+    margin-left: -1cm;
+    margin-right: -1cm;
+    margin-top: -1cm;
+    padding-top: 2cm;
+    padding-bottom: 2cm;
+    height: auto;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .topmenu {
+    color: lightgray;
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    text-decoration:none;
+  }
+  
+  .topmenu:hover {
+    color: white;
+    /* Add the styles here */
+  }
+  
+  .topdiv {
+    float: right;
+    padding-right: 1cm;
+  }
+  
+  .profile_name {
+    float: left;
+    padding-left: 2cm;
+    width: 100%;
+  }
+  
+  .contact_info {
+    font-size: 15px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .contact_info i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+  }
+  
+  .contact_info span {
+    margin-right: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+  }
+  
+  /* Titles */
+  
+  h2 {
+    text-align: justify;
+    font-size: 50px;
+    text-align: center;
+    float: left;
+    color: #7600bc;
+    margin: 30px;
+    margin-left: 60px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
+  
+  .introduction {
+    text-align: justify;
+    font-size: 30px;
+    text-align: center;
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    animation-duration: 5s;
+    position: relative;
+    color: #7600bc;
+  }
+  
+  /* Used in the About Me sections */
+  
+  .container {
+    display: flex;
+  }
+  
+  /* About Me */
+  
+  .about-me {
+    display: flex;
+    align-items: center;
+  }
+  
+  #about-me h1 {
+    font-size: 65px;
+    margin-top: 90px;
+    color: #7600bc;
+  }
+  
+  #about-me p {
+    font-size: 25px;
+    color: rgb(128, 128, 128);
+    margin-top: -1cm;
+  }
+  
+  .profile_image {
+    width: 550px;
+    height: fit-content;
+    vertical-align: middle;
+    margin: 5px;
+    color: lightcyan;
+  }
+  
+  /* Skills */
+  
+  .all_skills {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+  }
+  
+  .skill {
+    border: 1px solid gray;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    margin: 50px;
+    padding: 10px;
+    width: 2in;
+    font-size: 20px;
+    box-shadow: 0 3px 10px gray;
+  }
+  
+  .skill img {
+    height: 35px;
+    align-items: center;
+  }
+  
+  .skills h6 {
+    align-items: center;
+    font-size: 20px;
+    margin-block-start: 8px;
+    margin-block-end: 5px;
+    font-weight: bold;
+  } 
+  
+  .skills p {
+    align-items: center;
+    font-size: 15px;
+    color: gray;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+  } 
+  
+  .flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Projects */
+  
+  .projects-container {
+    margin-top: 30px;
+    margin-left: 60px;
+  }
+  
+  .projects-container hr {
+    border: 1px solid lightgray;
+    width: 75%;
+    margin-left: 5cm;
+  }
+  
+  .project-card {
+    margin: 0 15px 15px 30px;
+    padding-bottom: 5px;
+  }
+  
+  .project-card h3 {
+    font-size: 25px;
+    margin-left: 30px;
+  }
+  
+  .project-card li {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  
+  /* Recommendations */
+  
+  .all_recommendations {
+    display: flex;
+    align-items: center;
+    margin-left: 1in;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 20px;
+  }
+  
+  .recommendation {
+    font-style: italic;
+    text-align: left;
+    width: 21.875rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 11px;
+    box-shadow: 0 3px 10px var(--primary-shadow);
+    padding: 20px;
+    margin: 10px;
+    border:1px solid gray;
+    font-size: 18px;
+    height:150px
+  }
+  
+  .recommendation span {
+    color: #7600bc;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Scroll to Top Button */
+  
+  .iconbutton{
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: #7600bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 3%;
+    bottom: 3%;
+    cursor: pointer;
+  }
+  
+  /* Form Pop-up */
+  
+  .popup {
+    width: 400px;
+    background-color: #e8bcf0;
+    border-radius: 3mm;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    text-align: center;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.4s, opacity 0.4s;
+    z-index: 1000;
+  }
+  
+  .popup img {
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .popup h3 {
+    color: #7600bc;
+    margin-bottom: 20px;
+  }
+  
+  .popup button {
+    background-color: #7600bc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    width: 100px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .popup button:hover {
+    background-color: #9500eb;
+  }
+  
+  /* Recommendation Form */
+  
+  input, textarea {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin: 10px;  
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7600bc;
+    border-radius: 4px;
+  }
+  
+  textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  fieldset {
+    display: flexbox;
+    align-content: center;
+    justify-content: center;  
+    padding: 25px; 
+    margin-left: 50px; 
+    margin-right: 50px;   
+    border: thin solid white;
+    width: 50%;
+  }
+  
+  /* Buttons */
+  
+  button {
+    background-color: #fff;
+    border: 1px solid #7600bc;
+    color: #7600bc;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    margin: 50px;
+    padding: 10px;
+    width: 2in;
+    font-size: 20px;
+  }
+  
+  button:hover {
+    background-color: #7600bc;
+    border: 1px solid #7600bc;
+    color: #fff;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .header_art {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .circuit_pattern {
+    position: absolute;
+    left: 0;
+    width: 400px;
+    height: 150px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><path d="M0,150 h800 M50,50 v200 M150,100 v100 M250,75 v150" stroke="white" fill="none" stroke-width="2"/></svg>');
+    background-repeat: no-repeat;
+    opacity: 0.7;
+  }
+  
+  .atom_symbol {
+    position: absolute;
+    left: 450px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke="white" fill="none" stroke-width="2"/><ellipse cx="50" cy="50" rx="20" ry="45" stroke="white" fill="none" stroke-width="2" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="20" ry="45" stroke="white" fill="none" stroke-width="2" transform="rotate(-60 50 50)"/></svg>');
+    opacity: 0.7;
+  }
+  
+  .brain_icon {
+    position: absolute;
+    left: 600px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 C20,30 40,20 50,20 C60,20 80,30 80,50 C80,70 60,80 50,80 C40,80 20,70 20,50" stroke="white" fill="none" stroke-width="2"/></svg>');
+    opacity: 0.7;
+  }
+  
+  .profile_silhouette {
+    position: absolute;
+    right: 100px;
+    width: 100px;
+    height: 150px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M30,150 C30,100 70,100 70,150 M40,70 C40,40 60,40 60,70 C60,85 40,85 40,70" stroke="white" fill="none" stroke-width="2"/></svg>');
+    opacity: 0.7;
+  }
+  
+  .greeting {
+    position: absolute;
+    right: 250px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .greeting h1 {
+    color: white;
+    font-size: 48px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+  }
+  
+  .waving_hand {
+    width: 40px;
+    height: 40px;
+    animation: wave 2s infinite;
+  }
+  
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-20deg); }
+    75% { transform: rotate(20deg); }
+  }
+
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0 20px;
+  }
+
+  .nav-links a {
+    color: #7600bc;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #9500eb;
+  }
+
+  .profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(118, 0, 188, 0.2);
+  }
+
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #recommend_btn {
+    background-color: #7600bc;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  #recommend_btn:hover {
+    background-color: #9500eb;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  /* Header: Floating transparent navigation, Social media integration, Dark/Light mode toggle */
+  /* Main Sections: 1. Hero Section, 2. Featured Projects, 3. Learning Hub, 4. Research Center, 5. Social Feed, 6. Contact/About */
+
+  Platforms:
+  - GitHub (Code & Projects)
+  - LinkedIn (Professional Network)
+  - Twitter (AI Updates & Insights)
+  - YouTube (Tutorials & Demos)
+  - Medium/Dev.to (Technical Articles)
+  - Discord (Community)
+
+  Integration Features:
+  - Social feed wall
+  - Share buttons
+  - Follow widgets
+  - Activity highlights
+
+  1. Educational Content:
+   - Interactive Jupyter notebooks
+   - Video tutorials
+   - Code walkthroughs
+   - Case studies
+
+  2. Research Content:
+   - Paper summaries
+   - Implementation guides
+   - Experiment results
+   - Technical blogs
+
+  3. Social Content:
+   - Project updates
+   - AI news sharing
+   - Community highlights
+   - Live coding sessions
+
+  - Projects showcase
+  - Learning hub structure
+  - Research section
+  - Blog integration
+  - Code display system
+
+  - Social media links
+  - Share functionality
+  - Feed integration
+  - Community features
+
+  - Jupyter integration
+  - Code editor
+  - Progress tracking
+  - Resource management
+
+  - Performance optimization
+  - Cross-browser testing
+  - Mobile responsiveness
+  - Analytics setup
+  - Documentation
+
+  - HTML5/CSS3
+  - JavaScript/TypeScript
+  - React/Next.js
+  - Jupyter integration
+  - Code syntax highlighting
+  - Responsive design
+
+  - GitHub Pages hosting
+  - API integrations
+  - Social media APIs
+  - Analytics tracking
+
+  - Version Control: Git/GitHub
+  - Analytics: Google Analytics
+  - SEO Tools
+  - Social Media Management
+  - Content Management System
+
+1. Engagement:
+   - Time on site
+   - Page views
+   - Return visits
+   - Social shares
+
+2. Learning:
+   - Tutorial completions
+   - Code executions
+   - Resource downloads
+
+3. Community:
+   - Social followers
+   - Comments/discussions
+   - Project contributions
+
+Regular Updates:
+- Weekly content additions
+- Monthly feature updates
+- Quarterly design refresh
+- Continuous social engagement
+
+User Registration:
+1. Frontend form submission
+2. Backend validation
+3. Password hashing
+4. MongoDB user creation
+5. JWT token generation
+6. Session management
+
+Login Process:
+1. Credentials verification
+2. JWT token generation
+3. Secure cookie setting
+4. Protected route access
+
+- User model
+- Registration/Login APIs
+- JWT implementation
+- Protected routes
+- Frontend auth forms
+
+- Project CRUD operations
+- Tutorial system
+- User profiles
+- Social integration
+
+- Unit testing
+- Integration testing
+- Production Docker setup
+- CI/CD pipeline
+
+Auth:
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/profile
+
+Projects:
+GET    /api/projects
+POST   /api/projects
+GET    /api/projects/:id
+PUT    /api/projects/:id
+DELETE /api/projects/:id
+
+Learning:
+GET  /api/tutorials
+POST /api/tutorials
+GET  /api/tutorials/:id
+POST /api/progress/track
+
+Priority Containers:
+- Frontend (Next.js)
+- Backend (Node/Express)
+- MongoDB
+- Nginx (reverse proxy)
+
+a) Authentication System
+   - Login/Signup
+   - JWT handling
+   - Protected routes
+
+b) Core Pages
+   - Enhanced landing page
+   - Projects showcase
+   - Interactive learning section
+
+c) Database Integration
+   - MongoDB connection
+   - User schema
+   - Projects schema
+}

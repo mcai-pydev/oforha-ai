@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Expense Tracker</title>
+    <link rel="stylesheet" href="family_style.css">
+</head>
+<body>
+    <!-- Home section with navigation -->
+    <section id="home">
+        <header>Family Expense Tracker</header>
+        <nav>
+            <div class="topdiv">
+                <a href="#dashboard" class="topmenu">Dashboard</a>
+                <a href="#expenses" class="topmenu">Add Expense</a>
+                <a href="#summary" class="topmenu">Monthly Summary</a>
+                <a href="#profile" class="topmenu" id="profile-name">Profile</a>
+                <a href="#" class="topmenu" id="logout" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </section>
+
+    <!-- Login/Register Section -->
+    <section id="auth-section" class="auth-container">
+        <div class="auth-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required><br>
+                <input type="password" id="login-password" placeholder="Password" required><br>
+                <button type="submit" class="auth-button">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+        </div>
+
+        <div class="auth-box" style="display: none;" id="register-box">
+            <h2>Register</h2>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Full Name" required><br>
+                <input type="email" id="register-email" placeholder="Email" required><br>
+                <input type="password" id="register-password" placeholder="Password" required><br>
+                <select id="register-role" required>
+                    <option value="">Select Role</option>
+                    <option value="parent">Parent</option>
+                    <option value="child">Child</option>
+                </select><br>
+                <button type="submit" class="auth-button">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="main-section" style="display: none;">
+        <h2>Welcome, <span id="user-name">User</span>!</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h3>Your Monthly Spending</h3>
+                <p class="amount" id="personal-spending">$0.00</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Family Total</h3>
+                <p class="amount" id="family-total">$0.00</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Budget Status</h3>
+                <div class="progress-bar">
+                    <div class="progress" id="budget-progress"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Expense Section -->
+    <section id="expenses" class="main-section" style="display: none;">
+        <h2>Add New Expense</h2>
+        <form id="expense-form" class="expense-form">
+            <input type="text" id="expense-description" placeholder="Description" required>
+            <input type="number" id="expense-amount" placeholder="Amount" step="0.01" required>
+            <select id="expense-category" required>
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="groceries">Groceries</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="education">Education</option>
+                <option value="other">Other</option>
+            </select>
+            <button type="submit" class="submit-button">Add Expense</button>
+        </form>
+
+        <div class="recent-expenses">
+            <h3>Recent Expenses</h3>
+            <div id="expenses-list"></div>
+        </div>
+    </section>
+
+    <!-- Monthly Summary Section -->
+    <section id="summary" class="main-section" style="display: none;">
+        <h2>Monthly Summary</h2>
+        <div class="summary-filters">
+            <select id="month-select">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="year-select"></select>
+        </div>
+        <div class="summary-grid">
+            <div id="family-summary"></div>
+            <div id="category-breakdown"></div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="main-section" style="display: none;">
+        <h2>Profile Settings</h2>
+        <form id="profile-form" class="profile-form">
+            <input type="text" id="profile-name-input" placeholder="Full Name">
+            <input type="email" id="profile-email-input" placeholder="Email" readonly>
+            <input type="number" id="monthly-budget" placeholder="Set Monthly Budget" step="0.01">
+            <button type="submit" class="submit-button">Update Profile</button>
+        </form>
+    </section>
+
+    <!-- Home Button -->
+    <div id="go-home" class="iconbutton">
+        <a href="#home">
+            <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/home.svg" alt="Go to home"/>
+        </a>
+    </div>
+
+    <script src="family_script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo-placeholder">LOGO</div>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="signup.php" class="signup-button">SIGN UP</a></li>
+          <li><a href="login.php" class="login-placeholder">LOGIN</a></li>
+        </ul>
+      </nav>
+      <h1>Contact Us</h1>
+      <p class="subtitle">We'd love to hear from you. Reach out to us with any questions or feedback.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Get in Touch</h2>
+      <p>At AI Insights, we are passionate about exploring and sharing the latest advancements in AI, ML, and RAG. Our mission is to make complex technologies accessible and understandable for everyone. Whether you have a question, feedback, or just want to say hello, we are here to listen.</p>
+      <p>Contact us at <a href="mailto:info@oforha.ai">info@oforha.ai</a> or fill out the form below:</p>
+      
+      <form action="contact.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Our Story</h2>
+      <p>AI Insights was founded by a group of technology enthusiasts who saw the potential of AI, ML, and RAG to transform industries and improve lives. We believe that by sharing knowledge and insights, we can help others understand and harness the power of these technologies.</p>
+      <p>Our journey began with a simple idea: to create a platform where anyone, regardless of their background, could learn about AI and its applications. Today, we are proud to have built a community of learners, innovators, and experts who are passionate about the future of intelligent systems.</p>
+      <p>Join us on this exciting journey as we explore the frontiers of AI, ML, and RAG together.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 AI Insights. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 10px;
+    padding: 0;
+    background-color: black;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(240, 234, 245);
+    float: left;
+    padding-left: 2cm;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6f61;
+    text-decoration: underline;
+}
+
+.logo-placeholder {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.signup-button {
+    background-color: #ff6f61;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #ff4a3d;
+}
+
+.login-placeholder {
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.login-placeholder:hover {
+    color: #ff6f61;
+}
+
+/* Section Styles */
+section {
+    background: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2575fc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+section h2:hover {
+    color: #6a11cb;
+}
+
+section .content {
+    display: none; /* Initially hidden */
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: lightpink;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Home section  which has the app name and nav bar. The styling is applied by id */
+#home {
+    background-color: #483355;
+    margin-left: -1cm;
+    margin-right: -1cm;
+    margin-top: -1cm;
+    padding-top: 2cm;
+    padding-bottom: 2cm;
+}
+
+/* Navigation Bar Container*/
+.topdiv {
+    float: right;
+    padding-right: 1cm;
+}
+  
+/* Navigation Bar Buttons */
+.topmenu {
+    color: lightgray;
+    background-color: #483355;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 1mm;
+}
+  
+.topmenu:hover {
+    color: white;
+    font-weight: bolder;
+    background-color: #382742;
+    text-decoration: underline;
+}
+
+/* Figure styling */
+figure {
+    float: left;
+    text-align: auto;
+    width: 200px;
+}
+
+/* Image styling */
+img {
+    width: 200px;
+}
+
+/* Figure caption styling */
+figcaption {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+/* Conversion button styling */
+.conversion-button {
+    font-size: 20px;
+    border: transparent;
+    border-radius: 40px;
+    width: fit-content;
+    background-color: lightgreen;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.conversion-button:hover {
+    cursor: pointer;
+}
+
+/* Calculator panel styling */
+.b {
+    border-top-style: solid;
+    border-top-width: 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 600px;
+    height: 400px;
+    margin: 25px 0;
+    display: flex;
+}
+
+.temperature {
+    border-top-color: green;
+}
+
+.weight {
+    border-top-color: coral;
+}
+
+.distance {
+    border-top-color: cyan;
+}
+
+legend {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.panel {
+    margin-left: 50px;
+}
+
+/* Home button styling */
+.iconbutton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: cyan;
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+}
+
+.iconbutton img {
+    width: 30px;
+}

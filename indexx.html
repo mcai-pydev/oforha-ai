@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Home section with navigation -->
+  <section id="home">
+    <header>Unit Conversions</header>
+    <nav>
+      <div class="topdiv">
+        <a href="#temperature" class="topmenu">Temperature</a>
+        <a href="#weight" class="topmenu">Weight</a>
+        <a href="#distance" class="topmenu">Distance</a>
+      </div>
+    </nav>
+  </section>
+
+  <div id="all-conversion-sections">
+    <!-- Temperature Conversion Section -->
+    <section id="temperature" class="b temperature">
+      <div id="tmp">
+        <figure>
+          <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/thermo.png" width="150px"/>
+          <figcaption>Celsius to Fahrenheit Conversion</figcaption>
+        </figure>
+        <article>
+          <fieldset>
+            <legend>Temperature</legend>
+            <label for="celsius">Celsius</label><br/>
+            <input type="number" id="celsius"><br/>
+            <button class="conversion-button" onclick="temperature()">Convert</button><br/>
+            <input type="number" id="fahrenheit" readonly><br/>
+            <label for="fahrenheit">Fahrenheit</label>
+          </fieldset>
+          <aside>
+            To convert celsius to fahrenheit yourself, use this formula replacing the `C` with your temperature in celsius: (C × 9/5) + 32
+          </aside>
+        </article>
+      </div>
+    </section>
+
+    <!-- Weight Conversion Section -->
+    <section id="weight" class="b weight">
+      <div id="wgt">
+        <figure>
+          <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/weight.png" width="150px"/>
+          <figcaption>Kilograms to Pounds Conversion</figcaption>
+        </figure>
+        <article>
+          <fieldset>
+            <legend>Weight</legend>
+            <label for="kilograms">KG</label><br/>
+            <input type="number" id="kilograms"><br/>
+            <button class="conversion-button" onclick="weight()">Convert</button><br/>
+            <input type="number" id="pounds" readonly><br/>
+            <label for="pounds">Pounds</label>
+          </fieldset>
+          <aside>
+            To convert kilograms to pounds yourself, use this formula replacing the `kg` with your weight in kilograms: kg × 2.2
+          </aside>
+        </article>
+      </div>
+    </section>
+
+    <!-- Distance Conversion Section -->
+    <section id="distance" class="b distance">
+      <div id="dst">
+        <figure>
+          <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/speedo.png" width="150px"/>
+          <figcaption>Kilometers to Miles Conversion</figcaption>
+        </figure>
+        <article>
+          <fieldset>
+            <legend>Distance</legend>
+            <label for="kilometers">KM</label><br/>
+            <input type="number" id="kilometers"><br/>
+            <button class="conversion-button" onclick="distance()">Convert</button><br/>
+            <input type="number" id="miles" readonly><br/>
+            <label for="miles">Miles</label>
+          </fieldset>
+          <aside>
+            To convert kilometers to miles yourself, use this formula replacing the `km` with your distance in kilometers: km × 0.62137
+          </aside>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Home Button -->
+  <div id="go-home" class="iconbutton">
+    <a href="#home">
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/home.svg" alt="Go to home"/>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Learn more about HTML and CSS as a part of IBM Fullstack Cloud Developer Certification</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
